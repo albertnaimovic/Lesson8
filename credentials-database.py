@@ -3,7 +3,8 @@
 # Start Endless loop allowing to enter username and password and 
 # check ff credentials are correct stop endless loop and print greeting message, otherwise print 'wrong credentials' and ask to enter password and username again.
 # The program should show numbers of times you tried to enter both credentials.
-# For storing account information use dict , all data should be lowercase. and extra symbols (@, %, $ etc and numbers). 
+# For storing account information use dict , all data should be lowercase. and extra symbols (
+# c and numbers). 
 # If in password numbers or symbols are not provided, the program should add additional value to dictionary as a value, names 'improved password'
 
 # credentials_database = input("Enter username and password database: ")
@@ -12,7 +13,6 @@ credentials_database = "username='Albis', password='xa22*'; username='Jonas', pa
 
 if credentials_database[-1] == ";":
     credentials_database = credentials_database[:-1]
-
 credentials_database = credentials_database.replace(" ", "")
 list_of_credentials = credentials_database.lower().split(";")
 word_counter = len(list_of_credentials)
@@ -34,6 +34,7 @@ for item in list_of_credentials:
     cleaned_string = item.replace("username='", "").replace("',password='", ",").replace("'", "")
     pair_list = cleaned_string.split(',')
     temp_dict = {pair_list[0]: pair_list[1]}
+    print(temp_dict)
     credentials_dict.update(temp_dict)
 
 print(credentials_dict)
