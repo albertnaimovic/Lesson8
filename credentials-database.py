@@ -7,8 +7,11 @@
 # If in password numbers or symbols are not provided, the program should add additional value to dictionary as a value, names 'improved password'
 
 # credentials_database = input("Enter username and password database: ")
-# credentials_database = "username='albis', password='xa22*'; username='jonas',password='ada94-'; username='giedrius', password='aaa'; username='tadas', password='tadasxx1'"
-credentials_database = "username='Albis', password='xa22*'; username='Jonas', password='ada94-'; username='giedrius', password='aaa'; username='tadas', password='tadasxx1'; username='mariux', password='mariux'"
+# credentials_database = "username='albis', password='xa22*'; username='jonas',password='ada94-'; username='giedrius', password='aaa'; username='tadas', password='tadasxx1';"
+credentials_database = "username='Albis', password='xa22*'; username='Jonas', password='ada94-'; username='giedrius', password='aaa'; username='tadas', password='tadasxx1'; username='mariux', password='mariux';"
+
+if credentials_database[-1] == ";":
+    credentials_database = credentials_database[:-1]
 
 credentials_database = credentials_database.replace(" ", "")
 list_of_credentials = credentials_database.lower().split(";")
@@ -18,6 +21,8 @@ if word_counter < 5:
     while word_counter < 5:
         print("You've entered less than five credentials.")
         credentials_database = input("Enter username and password database: ")
+        if credentials_database[-1] == ";":
+            credentials_database = credentials_database[:-1]
         credentials_database = credentials_database.replace(" ", "")
         list_of_credentials = credentials_database.lower().split(";")
         word_counter = len(list_of_credentials)
