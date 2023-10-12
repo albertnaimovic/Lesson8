@@ -15,8 +15,13 @@ list_of_credentials = credentials_database.lower().split(";")
 word_counter = len(list_of_credentials)
 
 if word_counter < 5:
-    print("You've entered less than five credentials.")
-    exit(1)
+    while word_counter < 5:
+        print("You've entered less than five credentials.")
+        credentials_database = input("Enter username and password database: ")
+        credentials_database = credentials_database.replace(" ", "")
+        list_of_credentials = credentials_database.lower().split(";")
+        word_counter = len(list_of_credentials)
+
 
 credentials_dict = {}
 
@@ -40,6 +45,9 @@ while while_value == False:
             while_value = True
             print("You have logged in successfully")
             break
+        else:
+            wrong_credentials_counter += 1
+            print(f"Wrong password, it was your {wrong_credentials_counter} attempt.")
     else:
         wrong_credentials_counter += 1
         print(f"Wrong credentials, it was your {wrong_credentials_counter} attempt.")
